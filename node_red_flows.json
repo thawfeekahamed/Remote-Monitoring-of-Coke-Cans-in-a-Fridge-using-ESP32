@@ -1,0 +1,194 @@
+[
+    {
+        "id": "4b6b11b3d809e0c6",
+        "type": "mqtt in",
+        "z": "e8f0b1c1788e27c4",
+        "name": "Temperature",
+        "topic": "fridge/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "568864013f88d56d",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "15dccf5f047e5852"
+            ]
+        ]
+    },
+    {
+        "id": "15dccf5f047e5852",
+        "type": "ui_gauge",
+        "z": "e8f0b1c1788e27c4",
+        "name": "Temp Gauge",
+        "group": "80826269dbef0631",
+        "order": 1,
+        "width": 6,
+        "height": 6,
+        "gtype": "compass",
+        "title": "Fridge Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-40",
+        "max": 40,
+        "colors": [
+            "#0ad6ff",
+            "#4265b8",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 430,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d5a98ad12851fa43",
+        "type": "mqtt in",
+        "z": "e8f0b1c1788e27c4",
+        "name": "Can Level",
+        "topic": "fridge/can_level",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "568864013f88d56d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "93fe9406368b8c76"
+            ]
+        ]
+    },
+    {
+        "id": "93fe9406368b8c76",
+        "type": "ui_gauge",
+        "z": "e8f0b1c1788e27c4",
+        "name": "Can Level Gauge",
+        "group": "80826269dbef0631",
+        "order": 2,
+        "width": 6,
+        "height": 6,
+        "gtype": "gage",
+        "title": "Coke Can Level",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "36",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 430,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8d97daccf45d4287",
+        "type": "mqtt in",
+        "z": "e8f0b1c1788e27c4",
+        "name": "Can Count",
+        "topic": "fridge/can_count",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "568864013f88d56d",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "9bdf30ad2f8c97d4"
+            ]
+        ]
+    },
+    {
+        "id": "9bdf30ad2f8c97d4",
+        "type": "ui_text",
+        "z": "e8f0b1c1788e27c4",
+        "group": "80826269dbef0631",
+        "order": 3,
+        "width": 6,
+        "height": 2,
+        "name": "Can Count",
+        "label": "Coke Cans Remaining",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 430,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "568864013f88d56d",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "node-red-coke-fridge",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "80826269dbef0631",
+        "type": "ui_group",
+        "name": "Fridge Monitor",
+        "tab": "82b91629364de10c",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "82b91629364de10c",
+        "type": "ui_tab",
+        "name": "Coke Fridge Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "16129be77dfe18c0",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

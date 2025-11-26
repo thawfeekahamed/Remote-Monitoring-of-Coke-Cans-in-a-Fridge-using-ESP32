@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Thawfeek Ahamed",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": -39.53, "left": -120.72, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -75.3,
+      "left": 197.5,
+      "attrs": { "distance": "225" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 100.8,
+      "left": -134.95,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:2", "esp:4", "red", [ "h57.6", "v-164.4", "h182.4", "v144" ] ],
+    [ "temp1:GND", "esp:GND.1", "black", [ "v28.8", "h86.4", "v19.2" ] ],
+    [ "temp1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "r1:1", "temp1:VCC", "red", [ "h0" ] ],
+    [ "temp1:DQ", "esp:4", "blue", [ "v48", "h38.4", "v172.8", "h192", "v-86.4" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "magenta", [ "h0" ] ],
+    [ "esp:18", "ultrasonic1:ECHO", "purple", [ "h0" ] ],
+    [
+      "esp:5V",
+      "ultrasonic1:VCC",
+      "red",
+      [ "h-23.81", "v9.6", "h0", "v57.6", "h297.6", "v-9.6", "h-9.6" ]
+    ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
