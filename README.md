@@ -1,198 +1,54 @@
-\# 🧊 Remote Monitoring of Coke Cans in a Fridge
+# 🧊 Remote Monitoring of Coke Cans in a Fridge
 
-\### ESP32 • DS18B20 Temperature Sensor • Ultrasonic Sensor • MQTT (Mosquitto) • Node-RED Dashboard
+**ESP32 • DS18B20 Temperature Sensor • Ultrasonic Sensor • MQTT (Mosquitto) • Node-RED Dashboard**
 
-
-
-This project monitors the \*\*temperature\*\* and \*\*remaining Coke cans\*\* inside a fridge using an \*\*ESP32\*\*, and displays everything live on a \*\*Node-RED dashboard\*\*.
-
-
-
-The system uses:
-
-\- \*\*DS18B20\*\* to measure temperature  
-
-\- \*\*Ultrasonic (HC-SR04)\*\* to measure can height  
-
-\- \*\*MQTT (Mosquitto Broker)\*\* to transfer data  
-
-\- \*\*Node-RED Dashboard\*\* to visualize temperature, distance, and can count  
-
-
+This IoT project monitors the **temperature** and **remaining Coke cans** inside a fridge using an **ESP32**, displaying live data on a **Node-RED dashboard**. It's ideal for learning MQTT communication, sensor integration, and creating dashboards for real-time monitoring.  
 
 ---
 
+## 📌 Features
 
-
-\## 🚀 Features
-
-
-
-✔️ Real-time fridge temperature  
-
-✔️ Ultrasonic level reading  
-
-✔️ Automatic calculation of total \*\*can count\*\*  
-
-✔️ MQTT communication using \*\*Mosquitto Broker\*\*  
-
-✔️ Clean Node-RED dashboard  
-
-✔️ Works with \*\*Wokwi simulation\*\* or real hardware  
-
-✔️ Ideal IoT project for learning MQTT + ESP32  
-
-
+- Real-time fridge **temperature monitoring**  
+- **Ultrasonic level reading** to measure remaining cans  
+- Automatic calculation of **Coke can count**  
+- Communication via **MQTT using Mosquitto Broker**  
+- Interactive **Node-RED Dashboard** for live visualization  
+- Works with **Wokwi simulation** or physical hardware  
+- Easy to extend for other beverages or smart fridge applications  
 
 ---
 
-
-
-\## 🛠️ Hardware Components
-
-
+## 🛠 Hardware Components
 
 | Component | Quantity | Purpose |
-
-|----------|----------|---------|
-
+|-----------|----------|---------|
 | ESP32 Dev Board | 1 | Main controller |
-
-| DS18B20 Digital Temperature Sensor | 1 | Measure fridge temperature |
-
+| DS18B20 Digital Temperature Sensor | 1 | Fridge temperature |
 | HC-SR04 Ultrasonic Sensor | 1 | Measure can height (stock level) |
-
-| 4.7kΩ resistor | 1 | DS18B20 pull-up |
-
+| 4.7kΩ resistor | 1 | Pull-up resistor for DS18B20 |
 | Jumper wires | — | Connections |
-
-| USB cable | 1 | Power + programming |
-
-
+| USB cable | 1 | Power & programming |
 
 ---
 
+## 🔌 Wiring Diagram
 
-
-\## 🔌 Wiring Diagram
-
-
-
-\### \*\*DS18B20 Connections\*\*
-
+### DS18B20 Connections
 | DS18B20 | ESP32 |
-
 |---------|--------|
+| VDD     | 3.3V   |
+| GND     | GND    |
+| DATA    | GPIO 4 |
+**Note:** 4.7kΩ resistor between DATA ↔ 3.3V  
 
-| VDD | 3.3V |
-
-| GND | GND |
-
-| DATA | GPIO 4 |
-
-\*\*4.7kΩ resistor between DATA ↔ 3.3V\*\*
-
-
-
-\### \*\*HC-SR04 Connections\*\*
-
+### HC-SR04 Connections
 | HC-SR04 | ESP32 |
-
 |---------|--------|
+| VCC     | 5V     |
+| GND     | GND    |
+| TRIG    | GPIO 13 |
+| ECHO    | GPIO 12 |
 
-| VCC | 5V |
-
-| GND | GND |
-
-| TRIG | GPIO 13 |
-
-| ECHO | GPIO 12 |
-
-
-
----
-
-
-
-\## 🔧 Software \& Tools Used
-
-
-
-| Tool | Purpose |
-
-|------|---------|
-
-| Arduino IDE | ESP32 programming |
-
-| Mosquitto Broker | MQTT communication |
-
-| MQTT Explorer| Debugging topic values |
-
-| Node-RED + Dashboard | Visualization |
-
-| Wokwi Simulator | Testing hardware online |
-
-
-
----
-
-
-
-\## 🧩 MQTT Topics Used
-
-
-
-Topic | Description
-
-------|-------------
-
-`fridge/temp` | Temperature (°C)
-
-`fridge/level` | Ultrasonic distance (cm)
-
-`fridge/count` | Calculated Coke can count
-
-`fridge/status` | ESP32 online status
-
-
-
----
-
-
-
-\## 📊 Node-RED Dashboard UI
-
-
-
-Your dashboard includes:
-
-
-
-\- \*\*Temperature Gauge\*\*
-
-\- \*\*Ultrasonic Level Gauge\*\*
-
-\- \*\*Can Count (Numeric)\*\*
-
-\- \*\*Chart for Temperature History\*\*
-
-\- \*\*Chart for Distance History\*\*
-
-\- \*\*Status Indicator (Online/Offline)\*\*
-
-
-
----
-
-
-
-\## 📥 Node-RED Flow Import
-
-
-
-You can import the `.json` file included in this repository:
-
-
-
-
+- Wiring diagram: ![Wiring Diagram](./wiring-diagram.png)  
+- Schematic: ![Schematic](./Schematic_Remote_Monitoring_of_Coke_Cans.png)  
 
