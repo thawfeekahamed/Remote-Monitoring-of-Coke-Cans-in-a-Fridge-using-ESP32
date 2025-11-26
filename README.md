@@ -1,4 +1,4 @@
-# 🧊 Remote Monitoring of Coke Cans in a Fridge
+# 🧊 Remote Monitoring of Coke Cans in a Fridge using ESP32 and MQTT
 
 [![Arduino](https://img.shields.io/badge/Arduino-ESP32-blue?logo=arduino)](https://www.arduino.cc/) 
 [![Node-RED](https://img.shields.io/badge/Node--RED-flow-red?logo=node.js)](https://nodered.org/) 
@@ -69,5 +69,6 @@ This IoT project monitors the **temperature** and **remaining Coke cans** inside
    const char* ssid = "YOUR_WIFI_SSID";
    const char* password = "YOUR_WIFI_PASSWORD";
    const char* mqtt_server = "BROKER_IP_OR_HOSTNAME";
+
 
 
