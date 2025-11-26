@@ -1,8 +1,13 @@
 # 🧊 Remote Monitoring of Coke Cans in a Fridge
 
+[![Arduino](https://img.shields.io/badge/Arduino-ESP32-blue?logo=arduino)](https://www.arduino.cc/) 
+[![Node-RED](https://img.shields.io/badge/Node--RED-flow-red?logo=node.js)](https://nodered.org/) 
+[![MQTT](https://img.shields.io/badge/MQTT-Broker-orange?logo=mosquitto)](https://mosquitto.org/) 
+[![Wokwi](https://img.shields.io/badge/Wokwi-Simulation-brightgreen)](https://wokwi.com/)
+
 **ESP32 • DS18B20 Temperature Sensor • Ultrasonic Sensor • MQTT (Mosquitto) • Node-RED Dashboard**
 
-This IoT project monitors the **temperature** and **remaining Coke cans** inside a fridge using an **ESP32**, displaying live data on a **Node-RED dashboard**. It's ideal for learning MQTT communication, sensor integration, and creating dashboards for real-time monitoring.  
+This IoT project monitors the **temperature** and **remaining Coke cans** inside a fridge using an **ESP32**, displaying live data on a **Node-RED dashboard**. It's ideal for learning MQTT communication, sensor integration, and creating dashboards for real-time monitoring.
 
 ---
 
@@ -51,4 +56,18 @@ This IoT project monitors the **temperature** and **remaining Coke cans** inside
 
 - Wiring diagram: ![Wiring Diagram](./wiring-diagram.png)  
 - Schematic: ![Schematic](./Schematic_Remote_Monitoring_of_Coke_Cans.png)  
+
+---
+
+## 💻 Software Setup
+
+1. **Arduino IDE / PlatformIO**  
+   - Install **ESP32 board support**  
+   - Install libraries: `OneWire`, `DallasTemperature`, `PubSubClient`  
+   - Open [`esp32_fridge_monitor.ino`](./esp32_fridge_monitor.ino) and configure:
+   ```cpp
+   const char* ssid = "YOUR_WIFI_SSID";
+   const char* password = "YOUR_WIFI_PASSWORD";
+   const char* mqtt_server = "BROKER_IP_OR_HOSTNAME";
+
 
